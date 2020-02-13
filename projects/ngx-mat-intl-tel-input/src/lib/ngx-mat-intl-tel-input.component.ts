@@ -12,15 +12,16 @@ import {
   Self
 } from '@angular/core';
 
-import {NG_VALIDATORS, NgControl} from '@angular/forms';
-import {CountryCode, Examples} from './data/country-code';
-import {phoneNumberValidator} from './ngx-mat-intl-tel-input.validator';
-import {Country} from './model/country.model';
-import {getExampleNumber, parsePhoneNumberFromString, PhoneNumber} from 'libphonenumber-js';
-import {ErrorStateMatcher, MatFormFieldControl} from '@angular/material';
-import {coerceBooleanProperty} from '@angular/cdk/coercion';
-import {Subject} from 'rxjs';
-import {FocusMonitor} from '@angular/cdk/a11y';
+import { NG_VALIDATORS, NgControl } from '@angular/forms';
+import { CountryCode, Examples } from './data/country-code';
+import { phoneNumberValidator } from './ngx-mat-intl-tel-input.validator';
+import { Country } from './model/country.model';
+import { getExampleNumber, parsePhoneNumberFromString, PhoneNumber } from 'libphonenumber-js';
+import { coerceBooleanProperty } from '@angular/cdk/coercion';
+import { Subject } from 'rxjs';
+import { FocusMonitor } from '@angular/cdk/a11y';
+import { MatFormFieldControl } from '@angular/material/form-field';
+import { ErrorStateMatcher } from '@angular/material/core';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -29,7 +30,7 @@ import {FocusMonitor} from '@angular/cdk/a11y';
   styleUrls: ['./ngx-mat-intl-tel-input.component.css'],
   providers: [
     CountryCode,
-    {provide: MatFormFieldControl, useExisting: NgxMatIntlTelInputComponent},
+    { provide: MatFormFieldControl, useExisting: NgxMatIntlTelInputComponent },
     {
       provide: NG_VALIDATORS,
       useValue: phoneNumberValidator,
